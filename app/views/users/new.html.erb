@@ -1,0 +1,21 @@
+<div id="background">
+	<div id="register_panel">
+	<div id="register_form">
+		<%= form_for :user, :url => {:action => "create"} do |f| %>
+			<%= f.label "First Name"%><br/>
+			<%=f.text_field :firstname, :class => "register_field" %><br/>
+			<%= f.label "Last Name" %><br/>
+			<%=f.text_field :lastname, :class => "register_field" %><br/>
+			<%= f.label "Username" %><br/>
+			<%=f.text_field :username , :class => "register_field"%><br/>
+			<%= f.label "Email" %><br/>
+			<%=f.email_field :email, :class => "register_field" %><br/>
+			<%= f.label "Password" %><br/>
+			<%=f.password_field :password, :class => "register_field" %><br/>
+			<%= f.label "Confirm password" %><br/>
+			<%= f.password_field :password, :class => "register_field" %><br/>
+			<%= f.submit "Register", :id => "register_button"%>
+		<%end%>
+	</div>
+	</div>
+</div>
