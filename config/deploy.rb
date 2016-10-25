@@ -16,16 +16,18 @@ set :branch, "master"
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 set :user, "razvan"
+set :use_sudo, false
 set :rails_env, "production"
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
 # set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
 set :deploy_via, :copy
+# set :ssh_options, { :forward_agent}
 # Default value for :pty is false
 # set :pty, true
-default_run_options[:pty] = true
+# default_run_options[:pty] = true
 
-server "root@64.15.185.105", :app, :web, :db, :primary => true
+server "root@64.15.185.105", roles: [:app, :web, :db], :primary => true
 # Default value for :linked_files is []
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
 

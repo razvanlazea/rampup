@@ -23,7 +23,10 @@ development:
 # test:
 #   <<: *default
 #   database: db/test.sqlite3
-
-# production:
-#   <<: *default
-#   database: db/production.sqlite3
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: rampup
+  username: root 
+  password: parola
+  host: root@64.15.185.105
