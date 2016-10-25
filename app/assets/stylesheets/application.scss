@@ -14,3 +14,34 @@
  *= require_tree .
  *= require_self
  */
+
+.existing{
+	color: red;
+}
+
+#register_panel{
+	position: relative;
+	display: flex;
+	width: 650px;
+	height: auto;
+	padding: 10px;
+	background-color: #fdfdfd;
+	align-items: center;
+	justify-content: center;
+	font-family: sans serif;
+	border-radius: 5px;
+	box-shadow: 0 0 15px grey;
+	font-size: 18px;
+}
+
+#background{
+	background-color: #E6E6E6;
+	display: flex;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	right: 0px;
+	align-items: center;
+	justify-content: center;
+}

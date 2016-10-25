@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021081804) do
+ActiveRecord::Schema.define(version: 20161024054906) do
+
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text     "name",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "firstname",  limit: 65535
     t.text     "lastname",   limit: 65535
     t.text     "username",   limit: 65535
     t.text     "email",      limit: 65535
-    t.text     "password",   limit: 65535
+    t.binary   "password",   limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "role_id"
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "users", "roles"
 end

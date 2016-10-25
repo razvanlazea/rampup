@@ -1,2 +1,15 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div id="background">
+	<div id="login_panel">
+
+		<%= form_for :session, :url => {:action => "create"} do |f| %>
+			<% flash.each do |key, value| %>
+			<%= content_tag :div, value, class: "alert alert-info existing" %>
+			<%end%><br/>
+			<%=f.text_field :username, :class => "login_field" %> <br/>
+			<%=f.password_field :password, :class => "login_field" %><br/>
+			<%=f.submit "Login", :id => "login_button" %>
+		<%end %>
+
+		<%= button_to "Register", new_user_path, :method => "get"%>
+	</div>
+</div>		

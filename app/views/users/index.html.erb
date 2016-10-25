@@ -1,2 +1,26 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div id="background">
+	<div id="register_panel">
+		<table id="users_table">
+			<tr>
+				<th> First Name </th>
+				<th> Last Name </th>
+				<th> Username </th>
+				<th> Email </th>
+				<th> Role </th>
+			</tr>
+		<% User.where.not(username: "admin").each do |u| %>
+			<tr>
+				<td> <%= u.firstname %> </td>
+				<td> <%= u.lastname %> </td>
+				<td> <%= u.username %> </td>
+				<td> <%= u.email %> </td>
+				<td> <%= u.role.name %> </td>
+				<td> <%= form_for u , :url => {:action => "update", :id => u.id}, method: :put do |f| %>
+					 <%= f.submit "Set as admin"%>
+					 <%end%>
+				</td>
+			</tr>
+		<%end%>
+		</table>
+	</div>
+</div>
