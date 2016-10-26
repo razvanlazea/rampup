@@ -7,8 +7,10 @@ class Ability
             cannot :read, User
         elsif user.has_role?("admin")
             cannot :read, User
-        else user.has_role?("superadmin")
+        elsif user.has_role?("superadmin")
             can :read, User
+        else
+            cannot :read, User
         end
   end
 end
