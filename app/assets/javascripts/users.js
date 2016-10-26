@@ -41,9 +41,9 @@ $(document).ready(function() {
 				$(this).after("<b style='color: green' class='notice'>Good</b>");
 			}
 		});
-		$("#new_user").submit(function(e){
+		$("#new_user_form").submit(function(e){
 			e.preventDefault();
-			if(!passwords_match() || $(".js-password").val().length < 6){
+			if(!passtwords_match() || $(".js-password").val().length < 6){
 				return false
 			}
 			else{

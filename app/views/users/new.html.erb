@@ -1,7 +1,7 @@
 <div id="background">
 	<div id="register_panel">
 		
-		<%= form_for :user, :url => {:action => "create"}, :html => {:id => "new_user"}, remote: true do |f| %>
+		<%= form_for :user, :url => {:action => "create"}, :html => {:id => "new_user_form"}, remote: true do |f| %>
 			<% flash.each do |key, value| %>
 			<%= content_tag :div, value, class: "alert alert-info existing" %>
 			<%end%><br/>

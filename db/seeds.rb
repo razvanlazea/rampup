@@ -16,7 +16,7 @@ Role.create!([{
 	},
 	{
 		name: "superadmin"
-	}
+	},
 	])
 key = Blowfish::Key.generate('123456')
 pass = "test1234"
