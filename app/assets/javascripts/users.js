@@ -43,7 +43,7 @@ $(document).ready(function() {
 		});
 		$("#new_user_form").submit(function(e){
 			e.preventDefault();
-			if(!passtwords_match() || $(".js-password").val().length < 6){
+			if(!passwords_match() || $(".js-password").val().length < 6){
 				return false
 			}
 			else{

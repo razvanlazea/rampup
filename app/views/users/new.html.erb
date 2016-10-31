@@ -1,24 +1,25 @@
-<div id="background">
+<% if !session[:logged_user].blank? %>
+	<%=render :partial => "sessions/logout"%>
+<% end %>
 	<div id="register_panel">
 		
-		<%= form_for :user, :url => {:action => "create"}, :html => {:id => "new_user_form"}, remote: true do |f| %>
+		<%= form_for @user, id: "new_user_form", validate: true do |f| %>
 			<% flash.each do |key, value| %>
 			<%= content_tag :div, value, class: "alert alert-info existing" %>
 			<%end%><br/>
 			<%= f.label "First Name"%><br/>
-			<%=f.text_field :firstname, :class => "register_field", required: true %><br/>
+			<%=f.text_field :firstname, :class => "register_field" %><br/>
 			<%= f.label "Last Name" %><br/>
-			<%=f.text_field :lastname, :class => "register_field", required: true %><br/>
+			<%=f.text_field :lastname, :class => "register_field" %><br/>
 			<%= f.label "Username" %><br/>
-			<%=f.text_field :username , :class => "register_field", required: true%><br/>
+			<%=f.text_field :username , :class => "register_field" %><br/>
 			<%= f.label "Email" %><br/>
-			<%=f.email_field :email, :class => "register_field", required: true %><br/>
+			<%=f.email_field :email, :class => "register_field" %><br/>
 			<%= f.label "Password" %><br/>
-			<%=f.password_field :password, :class => "register_field js-password", required: true %><br/>
+			<%=f.password_field :password, :class => "register_field js-password" %><br/>
 			<%= f.label "Confirm password" %><br/>
-			<%= f.password_field :password, :class => "register_field js-confirm-password", required: true %><br/>
+			<%= f.password_field :password, :class => "register_field js-confirm-password" %><br/>
 			<%= f.submit "Register", :id => "register_button"%>
 		<%end%>
 	
 	</div>
-</div>

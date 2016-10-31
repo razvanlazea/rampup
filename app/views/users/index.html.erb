@@ -1,3 +1,6 @@
+<% if !session[:logged_user].blank? %>
+	<%=render :partial => "sessions/logout"%>
+<% end %>
 <div id="background">
 	<div id="register_panel">
 		<table id="users_table">

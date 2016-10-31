@@ -5,6 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def new
+    if !session[:logged_user].blank?
+      redirect_to sessions_path
+    end
   end
 
   def create
@@ -26,6 +29,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:logged_user] = nil
+    redirect_to new_session_path
   end
 
 end

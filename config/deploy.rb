@@ -26,8 +26,7 @@ set :deploy_via, :copy
 # Default value for :pty is false
 # set :pty, true
 # default_run_options[:pty] = true
-
-server "root@64.15.185.105", roles: [:app, :web, :db], :primary => true
+server "64.15.185.105", roles: [:app, :web, :db], :primary => true
 # Default value for :linked_files is []
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
 
@@ -39,19 +38,6 @@ server "root@64.15.185.105", roles: [:app, :web, :db], :primary => true
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-namespace :deploy do
 
-  desc "Change HTML Symlink to relative path"
-  task :create_symlink do
-    on roles(:app) do
 
-        info "Deleted current symlink"
-        execute "ln -s /data/ic/rampup/releases/#{File.basename release_path} /data/ic/reactor/active"
-        info "Created relative current symlink"
 
-    end
-  end
-
-end
-
-after :deploy, "deploy:create_symlink"
